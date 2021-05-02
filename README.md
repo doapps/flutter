@@ -1,33 +1,34 @@
 # DOAPPS Flutter Style Guide
 
-# Tabla de Contenido
+# Table of Contents
 
 1. [Variables](#variables)
-2. [Clases](#clases)
-3. [Métodos](#métodos)
-4. [Archivos](#archivos)
-5. [Palabras Reservadas](#palabras_reservadas)
-5. [Importaciones](#importaciones)
+2. [Classes](#classes)
+3. [Methods](#methods)
+4. [Files](#files)
+5. [Reserved Words](#reserved_words)
+5. [Imports](#imports)
 
 ## Variables
 
-Las variables deben ser declaradas en ingles y 
+Variables should be declared in English: 
 
-* Utilice la notación `camelCase` al momento de nombrar una variable `variable`.
+* Use the `camelCase` notation when naming a `variable`.
 
 ```dart
-//mal
+//bad
 int PAGINA_INICIAL = 1; 
 
-//bien
+//good
 int initialPage = 1;
 ```
 
-* Si la variable se creará dentro de un `Widget` esta debe anteponer un `_` al momento de crear la variable.
+* If the variable will be created inside a `Widget` it must be private.
 
 ```dart
-//mal
+//bad
 class _PrincipalState extends State<Principal> {
+
   int counter = 1;
 
   @override
@@ -36,8 +37,9 @@ class _PrincipalState extends State<Principal> {
   }
 }
 
-//bien
+//good
 class _PrincipalState extends State<Principal> {
+
   int _counter = 1;
   
   @override
@@ -47,11 +49,11 @@ class _PrincipalState extends State<Principal> {
 }
 ```
 
-* Cuando una variable sea creará dentro del metodo `build` de un `Widget` esta no debe llevar un `_`.
+* When a variable is created within the `build` method of a `Widget` it should not be private.
 
 
 ```dart
-//mal
+//bad
 class _PrincipalState extends State<Principal> {
   @override
   Widget build(BuildContext context) {
@@ -60,7 +62,7 @@ class _PrincipalState extends State<Principal> {
   }
 }
 
-//bien
+//good
 class _PrincipalState extends State<Principal> { 
   @override
   Widget build(BuildContext context) {
@@ -70,111 +72,113 @@ class _PrincipalState extends State<Principal> {
 }
 ```
 
-## Clases
+## Classes
 
-* Se debe utilizar la nomenclatura `PascalCase` para la creación de clases.
+* Use the `PascalCase` notation when naming a `class`.
 
 ```dart
-//mal
+//bad
 class productProvider {
     ...
 }
 
-//bien
+//good
 class ProductProvider {
     ...
 }
 ```
 
-* Si una clase no será exportada y solo sera usada en mismo archivo, esta debe ser privada, por lo cual deberá anteponer un `_` en su nombre.
+* If a `class` will not be exported and will only be used in the same file, it must be private, so you must prepend a `_` in its name.
 
 ```dart
-//mal
+//bad
 class ProductList {
     ...
 }
 
-//bien
-class _ProductoList {
+//good
+class _ProductList {
     ...
 }
 ```
 
-## Métodos
+## Methods
 
-* Para la declaración de metodos debe usar la nomenclatura `camelCase`
+* Use the `camelCase` notation when naming a `method`.
 
-### Métodos que retornan un valor
 
-* Debe indicar que tipo de dato retornará el método.
+* If a `method` will not be exported and will only be used in the same file, it must be private, so you must prepend a `_` in its name.
+### Methods that return a value
+
+* It must indicate what type of data the method returns.
 
 ```dart
-//mal
+//bad
 getName() {
     return ...;
 }
 
-//bien
+//good
 String getName() {
     return ...;
 }
 ```
 
-* Dado el caso que el método sea asincrona debe retornar un `Future<type>`
+* If the case that the method is asynchronous it must return a `Future <type>`
 
 ```dart
-//mal
+//bad
 getName() async {
     return ...;
 }
 
-//bien
+//good
 Future<String> getName() async {
     return ...;
 }
 ```
-### Métodos que retornan un valor
+### Methods that don't return a value
 
-* Si el método no retorna ningún valor dicho método debe ser de tipo `void`.
+* If the method does not return any value, the method must be of type `void`.
 
 ```dart
-//mal
+//bad
 setValue() {
     ...
 }
 
-//bien
+//good
 void setValue() {
     ...
 }
 ```
 
-* Dado el caso que el método sea asincrona debe retornar un `Future<void>`
+* In the case that the method is asynchronous it must return a `Future <void>`
 
 ```dart
-//mal
+//bad
 setValue() {
     ...
 }
 
-//bien
+//good
 Future<void> setValue() async {
     ...
 }
 ```
 
-### Métodos con envío de parametros
+### Methods with sending parameters
 
-* Para los métodos con envío de parametros estos se deben indicar con su tipo al momento de declarar la función, el nombre de los parametros debe seguir la nomenclatura `camelCase` y los parametros deben tener un espacio entre ellos.
+* Methods with sending parameters, these must be indicated with their type when declaring the method, the name of the parameters must follow the `camelCase` notation and the parameters must have a space between them.
 
 ```dart
-//mal
-setUserInfo(firstName,lastName, age) {
+//bad
+setUserInfo(firstName,lastName, age)async {
     ...
 }
 
-//bien
-Future<void> setNames(String firstName, String lastName, Int age) async {
+//good
+Future<void> setUserInfo(String firstName, String lastName, Int age) async {
     ...
 }
 ```
@@ -189,7 +193,7 @@ Para una mejor practica intente nombrar los archivos separando palabras con `Sub
 * Utilize palabras en ingles unicamente.
 ```
 
-//mal
+//bad
 
 Glosario.dart
 
@@ -197,7 +201,7 @@ SubMenuData.dart
 
 ProductProvider.dart
 
-//bien
+//good
 glosary_home_page.dart
 
 glosary_sub_menu.dart
@@ -212,12 +216,12 @@ product_provider.dart
 * No rebundar en palabras al nombrar las carpetas o subcarpetas.
 
 ```
-//mal
+//bad
 modeloglobalnetworking
     - networkingdata
     - dbmodel
 
-//bien
+//good
 
 model
     -network
@@ -232,9 +236,9 @@ model
 ### const
 Const se usa unicamente cuando ya tiene un valor por defecto y nunca cambiara por ejemplo si realizamos esta esta funcion:
 ```dart
-//Mal
+//bad
 const data=1+1;
-//Mal
+//bad
 const data=2;
 ```
 En el  ejemplo vemos que no se puede usar const en datos que cambiaran ya que en el primer ejemplo const no tiene un valor como tal. y cuando lo suma su valor es 2.
@@ -264,11 +268,11 @@ class GlosarioPage extends StatelessWidget {
 
 //Se puede acceder sin crear el objeto
 
-//Mal
+//bad
 
 GlosarioPage().keyClass;
 
-//Bien
+//good
 
 GlosarioPage.keyClass;
 
