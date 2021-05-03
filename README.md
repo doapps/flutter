@@ -5,8 +5,8 @@
 1. [Variables](#variables)
 2. [Classes](#classes)
 3. [Methods](#methods)
-4. [Files](#files)
-5. [Reserved Words](#reserved_words)
+4. [Files and Folders](#files-and-folders)
+5. [Reserved Words](#reserved-words)
 5. [Imports](#imports)
 
 ## Variables
@@ -182,15 +182,15 @@ Future<void> setUserInfo(String firstName, String lastName, Int age) async {
     ...
 }
 ```
-## Archivos y Carpetas
+## Files and Folders
 
-### Nombramiento de archivos o clases
+### File or class Naming
 
-Para una mejor practica intente nombrar los archivos separando palabras con `Subguion _`, siempre la primera palabra debe indicar la pertenencia a la funcion a realizar tanto para clases o widgets.
+For a better practice try to name the files separating words with `Sub-hyphen _`, always the first word must indicate the membership of the function to be performed for both classes or widgets.
 
-* Siempre vea la forma que el archivo especifique la funcion del archivo de modo que usted lo entienda y otros programadores tambien.
-* No use mayusculas al nombrar los archivos.
-* Utilize palabras en ingles unicamente.
+* Always see the way the file specifies the function of the file so that you and other programmers understand it as well.
+* Do not use capital letters when naming files.
+* Use English words only.
 ```
 
 //bad
@@ -209,11 +209,11 @@ glosary_sub_menu.dart
 product_provider.dart
 ```
 
-### Nombramiento de carpetas
+### Folders naming
 
-* Nunca use mas de tres palabras para nombrar una carpeta.
-* Intente no usar carpetas para cada archivo, debe de ver la forma de agrupar archivos segun su conteniendo, que tengan coherencia.
-* No rebundar en palabras al nombrar las carpetas o subcarpetas.
+* Never use more than three words to name a folder.
+* Try not to use folders for each file, you should see how to group files according to their content, that they have consistency.
+* Do not boil over in words when naming folders or subfolders.
 
 ```
 //bad
@@ -228,45 +228,45 @@ model
     -entitydb
 ```
 
-* En el ejemplo primero no se entiende muy bien la clase y en los sub carpetas hace rebundancia a la clase modelglobalnetworkin.
-* En el buen ejemplo en  una palabra se describe lo que contiene la clase que son modelos y las subcarpetas las separa de ese modo.
+* In the first example the class is not very well understood and in the sub folders it makes the modelglobalnetworkin class redundant.
+* In the good example, one word describes what the class contains, which are models, and separates the subfolders in that way.
 
-## Palabras Reservadas
+## Reserved Words
 
 ### const
-Const se usa unicamente cuando ya tiene un valor por defecto y nunca cambiara por ejemplo si realizamos esta esta funcion:
+Const is only used when it already has a default value and it will never change for example if we perform this function:
 ```dart
 //bad
 const data=1+1;
 //bad
 const data=2;
 ```
-En el  ejemplo vemos que no se puede usar const en datos que cambiaran ya que en el primer ejemplo const no tiene un valor como tal. y cuando lo suma su valor es 2.
-Pero como es const no acepta eso por que.
-* Solamente se usa const cuando la variable o valor final ya esta definido y nunca cambiara en el estado de vida del aplicativo. 
+In the example we see that const cannot be used in data that will change since in the first example const does not have a value as such. and when he adds it, its value is 2.
+But since it is const it does not accept that because.
+* Const is only used when the variable or final value is already defined and will never change in the application's life state.
 ### final
-Final indica que la variable o campo debe tener un inicializador, y una vez se inicialize  no podra a cambiar su valor.
+Final indicates that the variable or field must have an initializer, and once it is initialized it will not be able to change its value.
 
-*A diferencia de const final se usa cuando se necesita asignar un valor en tiempo de compilacion. 
+* Unlike final const it is used when you need to assign a value at compile time.
 ```dart
-//Se puede realizar
+//Can be done
 final int data;
 data =1+1;
-//Pero si intentas
+//But if you try
 final int data;
 data = 1+1;
-data = 3; // mal ya que solamente se puede asignar un valor unico.
+data = 3; // bad as only a single value can be assigned.
 
 ```
 ### static
 
-La palabra clave static se utiliza para una variable de nivel de clase y un método que es el mismo para cada instancia de una clase, esto significa que si un miembro de datos es estático, se puede tener acceso a ella sin crear un objeto.
+The static keyword is used for a class-level variable and a method that is the same for every instance of a class, this means that if a data member is static, it can be accessed without creating an object.
 ```dart
 class GlosarioPage extends StatelessWidget {
     static String keyClass = " ";
 }
 
-//Se puede acceder sin crear el objeto
+//Can be accessed without creating the object
 
 //bad
 
@@ -279,13 +279,12 @@ GlosarioPage.keyClass;
 ```
 
 ### late
-
-Late es una palabra reservada en dart 2.0 que indica que el valor no sera  `nulo` y que se asignara un  valor mas adelante.
+Late is a reserved word in dart 2.0 that indicates that the value will not be `null` and that a value will be assigned later.
 
 ### extends
 
-Usamos esta palabra reservada cuando queremos heredar las funciones y variables del padre. 
+We use this reserved word when we want to inherit functions and variables from the parent.
 
 ### implements
 
-Usamos esta palabra reservada para forzar la re-implementacion de funciones de la instancia 
+We use this reserved word to force re-implementation of instance functions
