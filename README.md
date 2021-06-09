@@ -2,15 +2,17 @@
 
 # Table of Contents
 
-1. [Variables](#variables)
-2. [Classes](#classes)
-3. [Methods](#methods)
-4. [Files and Folders](#files-and-folders)
-5. [Reserved Words](#reserved-words)
-6. [Imports](#imports)
-7. [Spacing](#spacing)
+- [Variables](#variables)
+- [Classes](#classes)
+- [Methods](#methods)
+- [Files and Folders](#files-and-folders)
+- [Reserved Words](#reserved-words)
+- [Imports](#imports)
+- [Spacing](#spacing)
 
 ## Variables
+
+### Naming
 
 Variables should be declared in English:
 
@@ -74,6 +76,8 @@ class _PrincipalState extends State<Principal> {
 
 ## Classes
 
+### Naming
+
 - Use the `PascalCase` notation when naming a `class`.
 
 ```dart
@@ -87,6 +91,8 @@ class ProductProvider {
     ...
 }
 ```
+
+### Exports
 
 - If a `class` will not be exported and will only be used in the same file, it must be private, so you must prepend a `_` in its name.
 
@@ -104,11 +110,13 @@ class _ProductList {
 
 ## Methods
 
+### Naming
+
 - Use the `camelCase` notation when naming a `method`.
 
 - If a `method` will not be exported and will only be used in the same file, it must be private, so you must prepend a `_` in its name.
 
-### Methods that return a value
+### Return value
 
 - It must indicate what type of data the method returns.
 
@@ -138,7 +146,7 @@ Future<String> getName() async {
 }
 ```
 
-### Methods that don't return a value
+### Not return value
 
 - If the method does not return any value, the method must be of type `void`.
 
@@ -168,7 +176,7 @@ Future<void> setValue() async {
 }
 ```
 
-### Methods with sending parameters
+### Sending parameters
 
 - Methods with sending parameters, these must be indicated with their type when declaring the method, the name of the parameters must follow the `camelCase` notation and the parameters must have a space between them.
 
@@ -186,7 +194,7 @@ Future<void> setUserInfo(String firstName, String lastName, Int age) async {
 
 ## Files and Folders
 
-### File or class Naming
+### File Naming
 
 For a better practice try to name the files separating words with `Sub-hyphen_`, always the first word must indicate the membership of the function to be performed for both classes or widgets.
 
@@ -379,7 +387,7 @@ int addition(int num1,int num2){
 }
 
 //good
-int addition(int num1, int num2){
+int addition(int num1, int num2) {
     return ...;
 }
 ```
