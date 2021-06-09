@@ -10,10 +10,9 @@
 6. [Imports](#imports)
 7. [Spacing](#spacing)
 8. [Dependency Injection](#dependency-injection)
+9. [Enums](#enums)
 
 ## Variables
-
-### Naming
 
 Variables should be declared in English:
 
@@ -77,8 +76,6 @@ class _PrincipalState extends State<Principal> {
 
 ## Classes
 
-### Naming
-
 - Use the `PascalCase` notation when naming a `class`.
 
 ```dart
@@ -109,9 +106,39 @@ class _ProductList {
 }
 ```
 
-## Methods
+### Constructor
 
-### Naming
+- If a class will have a constructor, and it will have data, the data must go below the constructor declaration.
+
+```dart
+
+// bad
+class LoginBloc extends ChangeNotifier {
+
+  final FormValidator formValidator;
+
+  LoginBloc({
+    required this.formValidator,
+  });
+    ...
+  }
+
+// good
+class LoginBloc extends ChangeNotifier {
+
+  LoginBloc({
+    required this.formValidator,
+  });
+
+  final FormValidator formValidator;
+
+    ...
+  }
+
+
+```
+
+## Methods
 
 - Use the `camelCase` notation when naming a `method`.
 
@@ -538,5 +565,16 @@ class ContactsBloc{
 }
 ```
 
-- You have 2 options or more, but you choose, what library help you more and what is it more
-  efficient.
+- You have 2 options or more, but you choose, what library help you more and what is it more efficient.
+
+## Enums
+
+- To declare the name of an enum in the code, it must use the nomenclature 'PascalCase' and for the data of the enum it must be named in 'camelCase'.
+
+```dart
+// bad
+enum LoginValidate { VALID, INVALID }
+
+// good
+enum LoginValidate { valid, invalid }
+```
